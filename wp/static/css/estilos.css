@@ -1,0 +1,81 @@
+
+@font-face {
+  font-family: Heycomic;
+  src: url('Hey Comic.otf');
+}
+
+@font-face {
+  font-family: wallnotes;
+  src: url('wallNotes.otf');
+}
+
+@font-face {
+  font-family: coolvetica;
+  src: url('coolveticarg.otf'),url('coolveticargit.otf'),url('coolveticacrammedrg.otf'),url('coolveticacondensedrg.otf');
+}
+body{
+background-color: #2C3E6C;
+color: solid;
+}
+
+
+#divitems{
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  padding: 0.5vh;
+}
+#divinicial{
+  align-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+#divimagen{
+  background-color: white;
+  width: 20rem;
+  margin:auto;
+  display:block;
+  align-content: center;
+  align-items: center;
+}
+
+p{
+  line-height:0.8;
+  font-size: 11px;
+}
+#idsilueta{
+  color: #2C3E6C;
+  opacity: 0.8;
+  font-size: 11px;
+  text-align: right;
+}
+
+#divheader{
+  position:relative;
+  vertical-align:middle;
+}
+#logo{
+  height:60px;
+  width:auto;
+  margin:auto;
+  position:relative;
+  left:2em;
+}
+
+#volver{
+  position:fixed;
+  top:0.5em;
+  right: 1em;
+  height:50px;
+  width:auto;
+  vertical-align:middle;
+  z-index: 1;
+}
+
+
+#volver:hover{
+  height:60px;
+  width:auto;
+  vertical-align:middle;
+}
