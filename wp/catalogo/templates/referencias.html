@@ -32,7 +32,7 @@
         {% for r in referencias %}
             <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12" id="divitems">
                 <div class="card" id="divimagen">
-                    <img src="../../static{{r.ruta}}" class="card-img-top" alt="...">
+                    <img src="{% static r.ruta %}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{r.referenciaunica}}  <span id="idsilueta">{{r.silueta}}</span>
                         </h5>

@@ -11,51 +11,68 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
+class CustomDict(dict):
+    def __missing__(self, key):
+        return '04'
+
+# Crear un diccionario personalizado
+mi_diccionario = CustomDict({
+    'pereira': '04',
+    'americas': 'PA',
+    'tulua': 'TU',
+    'palmira': 'PL',
+    'pasto': 'UP',
+})
+
 def catalogo(request):
-    return render(request,'base.html')
+    return render(request,'inicio.html')
 
-def camisas(request):
-    referencias= WpDisponibles.objects.filter(grupo='01')
+def lista(request, almacen):   
+    return render(request,'base.html' ,{'almacen':almacen})
+
+def camisas(request, almacen):
+    print(mi_diccionario[almacen])
+    referencias= WpDisponibles.objects.filter(grupo='01', bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
-def pantalones(request):
-    referencias= WpDisponibles.objects.filter(grupo='02')
+def pantalones(request, almacen):
+    referencias= WpDisponibles.objects.filter(grupo='02', bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
 
-def jeans(request):
-    referencias= WpDisponibles.objects.filter(grupo='35')
+def jeans(request, almacen):
+    referencias= WpDisponibles.objects.filter(grupo='35', bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
 
-def camisetas(request):
-    referencias= WpDisponibles.objects.filter(Q(grupo='03')|Q(grupo='60')|Q(grupo='30'))
+def camisetas(request , almacen):
+    referencias= WpDisponibles.objects.filter(grupo__in=['03','60','30'], bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
-def bermudas(request):
-    referencias= WpDisponibles.objects.filter(grupo='04')
+def bermudas(request, almacen):
+    referencias= WpDisponibles.objects.filter(grupo='04', bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
-def calzados(request):
-    referencias= WpDisponibles.objects.filter(Q(grupo='10')|Q(grupo='1A')|Q(grupo='1L'))
+def calzados(request, almacen):
+    referencias= WpDisponibles.objects.filter(grupo__in=['10','1A','1L'], bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
-def blazers(request):
-    referencias= WpDisponibles.objects.filter(Q(grupo='21')|Q(grupo='18'))
+def blazers(request, almacen):
+    referencias= WpDisponibles.objects.filter(grupo__in=['21','18'], bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
-def vestidos(request):
-    referencias= WpDisponibles.objects.filter(grupo='22')
+def vestidos(request, almacen):
+    referencias= WpDisponibles.objects.filter(grupo='22', bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
-def otros(request):
-    referencias= WpDisponibles.objects.filter(Q(grupo='CRR'))
+def otros(request, almacen):
+    referencias= WpDisponibles.objects.filter(Q(grupo='CRR'), bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
-def cubaveras(request):
-    referencias= WpDisponibles.objects.filter(Q(subgrupo='0118'))
+def cubaveras(request, almacen):
+    referencias= WpDisponibles.objects.filter(subgrupo='0118',  bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})
 
-def buzos(request):
-    referencias= WpDisponibles.objects.filter(Q(subgrupo='6003'))
+def buzos(request, almacen):
+    referencias= WpDisponibles.objects.filter(subgrupo='6003', bodega = mi_diccionario[almacen])
     return render(request,'referencias.html',{'referencias':referencias})

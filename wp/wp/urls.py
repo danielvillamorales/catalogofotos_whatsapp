@@ -15,19 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from catalogo.views import catalogo,camisas,pantalones,jeans,camisetas,bermudas,calzados,blazers,vestidos,otros,cubaveras,buzos
+from catalogo.views import catalogo,camisas,pantalones,jeans,camisetas,bermudas,calzados,blazers,vestidos,otros,cubaveras,buzos,lista
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', catalogo, name="menu"),
-    path('camisas/', camisas, name="camisas"),
-     path('cubaveras/', cubaveras, name="cubaveras"),
-    path('pantalones/', pantalones, name="pantalones"),
-    path('jeans/', jeans, name="jeans"),
-    path('camisetas/', camisetas, name="camisetas"),
-    path('bermudas/', bermudas, name="bermudas"),
-    path('calzados/', calzados, name="calzados"),
-    path('blazers/', blazers, name="blazers"),
-    path('vestidos/', vestidos, name="vestidos"),
-    path('otros/', otros, name="otros"),
-    path('buzos/', buzos, name="buzos"),
+    path('catalogo/<str:almacen>', lista, name="catalogo"),
+    path('catalogo/<str:almacen>/camisas/', camisas, name="camisas"),
+     path('catalogo/<str:almacen>/cubaveras/', cubaveras, name="cubaveras"),
+    path('catalogo/<str:almacen>/pantalones/', pantalones, name="pantalones"),
+    path('catalogo/<str:almacen>/jeans/', jeans, name="jeans"),
+    path('catalogo/<str:almacen>/camisetas/', camisetas, name="camisetas"),
+    path('catalogo/<str:almacen>/bermudas/', bermudas, name="bermudas"),
+    path('catalogo/<str:almacen>/calzados/', calzados, name="calzados"),
+    path('catalogo/<str:almacen>/blazers/', blazers, name="blazers"),
+    path('catalogo/<str:almacen>/vestidos/', vestidos, name="vestidos"),
+    path('catalogo/<str:almacen>/otros/', otros, name="otros"),
+    path('catalogo/<str:almacen>/buzos/', buzos, name="buzos"),
 ]

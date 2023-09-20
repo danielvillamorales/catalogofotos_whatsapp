@@ -30,6 +30,7 @@ class WpFotosCatalago(models.Model):
 
 
 class WpDisponibles(models.Model):
+    bodega = models.CharField(max_length=9, blank=True, null=True)
     referenciaunica = models.CharField(max_length=53,  blank=True, null=True)
     referencia = models.CharField(max_length=11,  blank=True, null=True)
     codcolor = models.CharField(max_length=2,  blank=True, null=True)

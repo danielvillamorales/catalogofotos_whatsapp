@@ -33,65 +33,67 @@
             <div id="divlist">
                     <ul class="horizontal-list">
                         <li>
-                            <a href="{% url 'camisas' %}">
+                            <a href="{% url 'camisas' almacen=almacen %}">
                                 <img src="{% static 'img/camisa.png'%}" alt="Camisas">
                                 <p>Camisas</p>
                             </a>   
                         </li>
                         <li>
-                            <a href="{% url 'pantalones' %}">
+                            <a href="{% url 'pantalones' almacen=almacen %}">
                                 <img src="{% static 'img/pantalones.png'%}" alt="Pantalones">
                                 <p>Pantalones</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'jeans' %}">
+                            <a href="{% url 'jeans' almacen=almacen %}">
                                 <img src="{% static 'img/jeans.png'%}" alt="Jeans">
                                 <p>Jeans</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'camisetas' %}">
+                            <a href="{% url 'camisetas' almacen=almacen %}">
                                 <img src="{% static 'img/camisa-polo.png'%}" alt="Camisetas">
                                 <p>Camisetas</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'bermudas' %}">
+                            <a href="{% url 'bermudas' almacen=almacen %}">
                                 <img src="{% static 'img/bermudas.png'%}" alt="Bermudas">
                                 <p>Bermudas</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'calzados' %}">
+                            <a href="{% url 'calzados' almacen=almacen %}">
                                 <img src="{% static 'img/zapato.png'%}" alt="calzados">
                                 <p>Calzados</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'blazers' %}">
+                            <a href="{% url 'blazers' almacen=almacen %}">
                                 <img src="{% static 'img/blazer.png'%}" alt="blazers">
                                 <p>Blazers</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'vestidos' %}">
+                            <a href="{% url 'vestidos' almacen=almacen %}">
                                 <img src="{% static 'img/VESTIDOS.png'%}" alt="Vestidos">
                                 <p>Vestidos</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'buzos' %}">
+                            <a href="{% url 'buzos' almacen=almacen %}">
                                 <img src="{% static 'img/buzo.png'%}" alt="Buzos">
                                 <p>Buzos</p>
                             </a>
                         </li>
+                        {% if almacen == 'pereira'%}
                         <li>
-                            <a href="{% url 'otros' %}">
+                            <a href="{% url 'otros' almacen=almacen %}">
                                 <img src="{% static 'img/outlet.png'%}" alt="Outlet">
                                 <p>Outlet</p>
                             </a>
                         </li>
+                        {%endif%}
                     </ul>
             </div>
         </div>
