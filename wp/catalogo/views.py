@@ -33,46 +33,68 @@ def lista(request, almacen):
 def camisas(request, almacen):
     print(mi_diccionario[almacen])
     referencias= WpDisponibles.objects.filter(grupo='01', bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
 
 def pantalones(request, almacen):
     referencias= WpDisponibles.objects.filter(grupo='02', bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
 
 
 def jeans(request, almacen):
     referencias= WpDisponibles.objects.filter(grupo='35', bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''    
     return render(request,'referencias.html',{'referencias':referencias})
 
 
 def camisetas(request , almacen):
     referencias= WpDisponibles.objects.filter(grupo__in=['03','60','30'], bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
 
 def bermudas(request, almacen):
     referencias= WpDisponibles.objects.filter(grupo='04', bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
 
 def calzados(request, almacen):
     referencias= WpDisponibles.objects.filter(grupo__in=['10','1A','1L'], bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
 
 def blazers(request, almacen):
     referencias= WpDisponibles.objects.filter(grupo__in=['21','18'], bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
 
 def vestidos(request, almacen):
     referencias= WpDisponibles.objects.filter(grupo='22', bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
 
 def otros(request, almacen):
     referencias= WpDisponibles.objects.filter(Q(grupo='CRR'), bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
 
 def cubaveras(request, almacen):
     referencias= WpDisponibles.objects.filter(subgrupo='0118',  bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
 
 def buzos(request, almacen):
     referencias= WpDisponibles.objects.filter(subgrupo='6003', bodega = mi_diccionario[almacen])
+    for referencia in referencias:
+        referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
