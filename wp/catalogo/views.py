@@ -64,7 +64,7 @@ def bermudas(request, almacen):
     return render(request,'referencias.html',{'referencias':referencias})
 
 def calzados(request, almacen):
-    referencias= WpDisponibles.objects.filter(grupo__in=['10','1A','1L'], bodega = mi_diccionario[almacen])
+    referencias= WpDisponibles.objects.filter(grupo__in=['10','1A','1L','70'], bodega = mi_diccionario[almacen])
     for referencia in referencias:
         referencia.tallas_format = referencia.tallas.split('-') if referencia.tallas else ''
     return render(request,'referencias.html',{'referencias':referencias})
